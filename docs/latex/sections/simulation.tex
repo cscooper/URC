@@ -1,0 +1,43 @@
+\section{Running Simulations}
+
+\subsection{Incorporating the model}
+The simplest way to start simulations using URC is to subclass the \textit{UrcScenarioManager} class. This object, when initialised, loads your CORNER and URC files into memory automatically. Then you must create your vehicles in OMNeT++, specifying \textit{UrcPhyLayer}, or a subclass thereof, as your PHY layer module. Then you can specify which parts of the model in the analogue models XML file. This is an example of the analogue models section of the channel configuration file.
+
+\begin{lstlisting}[frame=single]
+<AnalogueModels>
+    <AnalogueModel type="CORNER">
+	<parameter name="interval"
+		   type="double"
+		   value="0.1"/>
+    </AnalogueModel>
+    <AnalogueModel type="CarShadow">
+	<parameter name="interval"
+	           type="double"
+	           value="0.1"/>
+	<parameter name="wavelength"
+	           type="double" 
+	           value="0.124378109"/>
+    </AnalogueModel>
+</AnalogueModels>
+\end{lstlisting}
+
+URC is modular, meaning you can use only the components you wish. If you want only to use CORNER, you can omit the \textit{CarShadow} segment. The environmental $K$-factors can be ignored in favour of a static value by adding the parameter \textit{"k"} to the \textit{CORNER} segment and setting a desired value. Conversely, if you want only the shadowing model, the \textit{CORNER} segment can be removed. At present, the fading and CORNER functionality are inseparable.
+
+\subsection{Configuration}
+
+The \textit{UrcScenarioManager} requires the following parameters to be specified.
+\begin{itemize}
+ \item \textbf{linksFile} - Link file as created by \textit{Sumo2Corner}. 
+ \item \textbf{nodesFile} - Node file as created by \textit{Sumo2Corner}. 
+ \item \textbf{classFile} - CORNER Classification database.
+ \item \textbf{linkMapFile} - Link name-ID lookup file.
+ \item \textbf{intLinkMapFile} - Internal Link-node lookup file. 
+ \item \textbf{riceFile} - Precomputed $K$-factor database file, generated from \textit{Raytracer}.
+ \item \textbf{laneWidth} - Width of the lanes. This must be the same as was specified to the pre-simulation programs.
+ \item \textbf{txPower} - Transmission power in milliwatts. This should be the same as was specified to the \textit{Raytracer}.
+ \item \textbf{systemLoss} - A loss factor associated with thermal noise. The value used in \cite{mukunthan_experimental_2013,cooper_dynamic_2014} was 1142.9.
+ \item \textbf{sensitivity} - Receiver sensitivity.
+ \item \textbf{lossPerReflection} - Loss per reflection. This is not the value used in the \textit{Raytracer}, but is used in the CORNER calculation.
+ \item \textbf{componentFile} - Name of a datafile containing uncorrelated fading waveforms. This is used in calculation of the fading gain. The data used in \cite{mukunthan_experimental_2013,cooper_dynamic_2014} is in \textit{data/default.fading}.
+\end{itemize}
+

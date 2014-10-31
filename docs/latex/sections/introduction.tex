@@ -1,0 +1,13 @@
+\section{Introduction}
+
+This is the help document for the Urban Radio Channel (URC), developed by Craig Cooper and Abhinay Mukunthan. It has been released under the GLGPL.
+
+This documents contains instructions on how to use the model in VEINS \cite{sommer_veins_2010}, a simulation framework that combines OMNeT++ \cite{varga_omnet++_2009} with SUMO \cite{krajzewicz_sumo_2011} via the TraCI communications protocol \cite{wegener_traci:_2008}. The modules are built upon MiXiM \cite{viklund_mixim_2011}. To build URC, VEINS 2.0 or later is required.
+
+The model combines calculations to account for three separate elements of the channel:
+\begin{enumerate}
+ \item Path Loss - Accounted for using the CORNER model proposed by Giordano et al \cite{giordano_corner:_2011}. This uses the layout of an urban environment to determine whether a destination node is within Line-Of-Sight of a transmitting vehicle. Different path loss calculations are applied based on this classification. The model was verified and improved upon by Mukunthan el al \cite{mukunthan_experimental_2013}.
+ \item Fading - An environmentally dependant fading model was presented in \cite{cooper_dynamic_2014}, which uses the building layout to estimate the multi-path components and estimate the parameters of a Ricean fading model. A pre-simulation step to compute the fading parameters is required.
+ \item Vehicular obstructions - A deterministic model based on Knife-Edge shadowing was developed and verified experimentally by Wang et al \cite{wang_influence_2009}. This was selected to account for the transient nature of vehicular obstructions.
+\end{enumerate}
+

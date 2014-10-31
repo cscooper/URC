@@ -1,0 +1,48 @@
+\documentclass[10pt,conference]{IEEEtran}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{cite}
+\usepackage{graphicx}
+%\usepackage{caption}
+%\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{cancel}
+%\usepackage{pdftex}
+\usepackage[listings,skins]{tcolorbox}
+\usepackage[ruled,commentsnumbered,vlined]{algorithm2e}
+\usepackage{subfig}
+\title{Urban Radio Attenuation Emulator}
+
+\author{
+\IEEEauthorblockN{ Craig Cooper\IEEEauthorrefmark{1}, Abhinay Mukunthan\IEEEauthorrefmark{1} } \par
+\IEEEauthorblockA{\IEEEauthorrefmark{1}ICT Research Institute - University of Wollongong, Wollongong NSW 2500, Australia \\ email: andor734@gmail.com} \par
+}
+
+\newcommand{\note}[1]{\textcolor{red}{\textbf{NOTE: #1}}}
+\newcommand{\todo}[1]{\textcolor{blue}{\textbf{TODO: #1}}}
+\newcommand{\needcite}[0]{\textcolor{blue}{\textbf{[Citation Needed]}}}
+\newcommand{\que}[1]{\textcolor{blue}{\textbf{[#1]}}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This is the help document on URC.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Channel Modelling, Help
+\end{IEEEkeywords}
+
+\input{sections/introduction.tex}
+\input{sections/setup.tex}
+\input{sections/utilities.tex}
+\input{sections/simulation.tex}
+\input{sections/open_problems.tex}
+\input{sections/conclusion.tex}
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

@@ -1,0 +1,16 @@
+////////////////////////
+// TO-DO LIST FOR URC //
+////////////////////////
+
+1. The shadow model needs to get vehicle dimensions from SUMO through TraCI - Done.
+
+2. Put in the ability to get the current link for a vehicle from TraCI - Done.
+
+3. Create Raytracer pre-sim step - Done.
+
+4. Modify UrcData to load precomputed raytracer results - Done.
+
+5. Create a table with vehicle heights for corresponding classes - Done.
+
+6. QualNet capability - Pending...
+
