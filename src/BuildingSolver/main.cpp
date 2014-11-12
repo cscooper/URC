@@ -23,6 +23,12 @@
 #include <algorithm>
 #include <cfloat>
 
+// #include <allegro5/allegro.h>
+// #include <allegro5/allegro_image.h>
+// #include <allegro5/allegro_font.h>
+// #include <allegro5/allegro_ttf.h>
+// #include <allegro5/allegro_primitives.h>
+
 #include "Urc.h"
 
 #define SIGN(x) (x<0?-1:1)
@@ -310,7 +316,7 @@ int main( int argc, char **ppArgv ) {
 	}
 	outputStream.close();
 
-// 	// Let's see the data.
+	// Let's see the data.
 // 	al_init();
 // 	al_init_primitives_addon();
 // 	al_init_image_addon();
@@ -336,8 +342,8 @@ int main( int argc, char **ppArgv ) {
 // 		}
 // 		al_draw_textf( f, al_map_rgb_f(1,1,1), ax*0.5/buildingIt->mEdgeSet.size(), ay*0.5/buildingIt->mEdgeSet.size(), 0, "%d", buildingIt->mId );
 // 	}
-
-
+// 
+// 
 // 	ALLEGRO_COLOR cols[4];
 // 	cols[0] = al_map_rgb_f(1,0,0); // Red
 // 	cols[1] = al_map_rgb_f(1,1,0); // Yellow
@@ -352,17 +358,17 @@ int main( int argc, char **ppArgv ) {
 // 
 // 			int col = vIt-nvIt->second.begin();
 // 			Vector2D v = p + nodeLookup[nvIt->first][col].mDirection*60;
-// 			al_draw_filled_circle( d+vIt->x/dw, d+vIt->y/dh, 10, cols[col] );
-// 			al_draw_line( d+p.x/dw, d+p.y/dh, d+v.x/dw, d+v.y/dh, cols[col], 15 );
+// 			al_draw_filled_circle( d+vIt->x*dw, d+vIt->y*dh, 10, cols[col] );
+// 			al_draw_line( d+p.x*dw, d+p.y*dh, d+v.x*dw, d+v.y*dh, cols[col], 15 );
 // 
 // 		}
 // 
-// 		al_draw_circle( d+p.x/dw, d+p.y/dh, 10, al_map_rgb_f(1,1,1), 2 );
+// 		al_draw_circle( d+p.x*dw, d+p.y*dh, 10, al_map_rgb_f(1,1,1), 2 );
 // 
 // 	}
-	
+// 	
 // 	std::cerr << "Saving image...\n";
-// 	if ( !al_save_bitmap( "building.bmp", bmp ) )
+// 	if ( !al_save_bitmap( "building.png", bmp ) )
 // 		std::cerr << "FAILED!\n";
 // 	al_destroy_bitmap( bmp );
 // 	al_destroy_font( f );
